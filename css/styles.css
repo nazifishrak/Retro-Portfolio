@@ -1,0 +1,120 @@
+body{
+    /* Colours:
+    dark navy: #171927 
+    dark-blue: #0F1C2F
+    drak-light-navy:#0F1C2F;
+
+    */
+    background-color: #243d55;
+    background-color: #171927; 
+    /* background-color: #0F1C2F;  */
+    /* background-color: #ffffff; */
+}
+#title{
+
+}
+
+.top{
+    width: 100%;
+    align-content: center;
+    margin: auto;
+}
+
+#intro{
+    color: #8FE3CF;
+    color: #7458EB;
+    font-family: 'VT323', monospace;
+    font-size: 500%;
+}
+a{
+    font-family: 'Space Mono', monospace;
+}
+
+.menu{
+    font-size: 30px;
+
+}
+.nav-item{
+
+}
+
+
+.button-height{
+    height: 30px;
+    margin: auto;
+}
+.code {
+    margin: 50px auto;
+}
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: auto auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+.second-row{
+    margin: 50px 50px;
+}
+
+.container-fluid{
+    padding: 3% 15%;
+    margin: auto;
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 6em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+.button-1{
+    margin-right: 10px;
+}
+
+/* ------------------------ */
+.myButton {
+	box-shadow: 3px 4px 0px 0px #8FE3CF;
+	background:linear-gradient(to bottom, #79bbff 5%, #8FE3CF 100%);
+	background-color:#79bbff;
+	border-radius:5px;
+	border:1px solid #38a88e;
+	display:inline-block;
+	cursor:pointer;
+	color:#2B4865;
+	font-family: 'Space Mono', monospace;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #8FE3CF;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #8FE3CF 5%, #79bbff 100%);
+	background-color:#8FE3CF;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+/* Footer------------------ */
+#footer{
+    text-align: center;
+    margin-top: 2%;
+    color: #456e98;
+    font-family: 'NTR', sans-serif;
+    font-size: small;
+}
