@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>GOAL PLANNER</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e3b929e4-805f-4c53-af27-48a28c905aec" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_reduced_gravity_walking_simulator.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">⚡</span></div><h1 class="page-title">GOAL PLANNER</h1></header><div class="page-body"><p id="be20b5fe-ee0e-4364-baea-eddcfe794746" class="">
+</p><h1 id="11ffa604-dae3-44f9-acb3-f5dab97398cb" class="block-color-pink">Weekly Agenda | </h1><ul id="597089c2-ff89-4adf-9c52-7d5e2f29de1a" class="toggle"><li><details open=""><summary>Calendar View</summary><figure id="36e4f802-af4d-4c99-a961-c3917d1084c6" class="link-to-page"><a href="https://www.notion.so/36e4f802af4d4c99a961c3917d1084c6">Untitled</a></figure><p id="715168b9-8bd7-4522-8498-8c7710c83919" class="">
+</p></details></li></ul><h1 id="563ae686-2bc1-4964-9e99-c88ab2512f0b" class="block-color-pink_background">Make Time</h1><ul id="f7983b5c-589a-4ad2-a089-e59cd4ccc69c" class="toggle"><li><details open=""><summary>Guidance</summary><p id="0dd07907-91fd-44e5-99b9-b34ada200281" class="">
+</p></details></li></ul><div id="dfb81e14-4e4c-4cb6-b5a6-5c67a1f4597f" class="column-list"><div id="b8aa8985-3a49-4bd9-b3b6-0bb282634aaa" style="width:43.75%" class="column"><h2 id="f0fc4267-7913-46bf-81ea-005815149742" class="">Action Items</h2><p id="cf8e22a8-468e-433c-aea7-1366c7cbb8f6" class="block-color-gray">Things that need to be done this week</p><h3 id="a5a4ff32-62a4-4410-b93d-a74c16da4be9" class="">Action Items</h3><p id="f89cefdc-0c0b-4839-a552-99f49210f7b8" class="">Things that need to be done this week:</p><ul id="aa8b56ec-9841-489e-b0a8-0c1863feaa56" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Look into the coop process</span><div class="indented"></div></li></ul><ul id="2ca2005c-b018-4dff-97a9-5fe49a4b5656" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Talk to coop advisor</span><div class="indented"></div></li></ul><ul id="88cf5503-c132-4642-b0b3-184487fd6ae2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Look at the job application</span><div class="indented"></div></li></ul><ul id="85727071-d6fc-4077-a300-f3603656bc3d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Look at projects</span><div class="indented"></div></li></ul><ul id="a9baca3f-f653-42bb-8ab0-c99e546c8e63" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Plan out the whole summer break productively</span><div class="indented"></div></li></ul><p id="8eb4591c-e8c7-4727-b278-6a5eee898a0b" class="">
+</p><h1 id="385684fc-38c7-44ed-8482-291b32827248" class="block-color-pink">Coop Job Applications</h1><p id="fa431845-dfd5-45a3-92f2-b351b85ea83e" class="">::: callout 🚀</p><p id="0dbd05e7-6a96-4de9-81b5-d1e6fc25b7c0" class=""><strong>Job Application Strategy</strong></p><p id="29275160-0777-4a94-820f-a387b99d28f4" class="">To apply to 100 jobs in 20 days, you will need to be efficient and organized. Here&#x27;s a roadmap to help you achieve your goals:</p><ol type="1" id="df65ecc7-8aea-4cc5-8d8a-cd630e91418c" class="numbered-list" start="1"><li><strong>Create a resume and cover letter template</strong>: This will allow you to quickly apply to multiple jobs without having to spend time customizing your application for each one.</li></ol><ol type="1" id="185f3f1d-8c3e-4c17-8200-66d0bcfb49b2" class="numbered-list" start="2"><li><strong>Look for positions on job boards</strong>: Use websites like Indeed, Glassdoor, and LinkedIn to find job postings that match your skills and interests. You can also check out company websites to see if they have any open positions.</li></ol><ol type="1" id="6fc04ad5-613f-4ad7-9e94-bcfc88896956" class="numbered-list" start="3"><li><strong>Apply to at least 5 jobs per day</strong>: Set a goal to apply to at least 5 jobs per day. This will help you reach your goal of 100 applications in 20 days.</li></ol><ol type="1" id="3a88b894-26d3-477d-9b9f-555b3305b72c" class="numbered-list" start="4"><li><strong>Prepare for interviews</strong>: Spend some time researching common interview questions and practicing your answers. This will help you feel more confident during interviews.</li></ol><ol type="1" id="cfd6c61b-bc23-458d-bd0f-4efb984c2604" class="numbered-list" start="5"><li><strong>Work on personal projects</strong>: Since you don&#x27;t have much work experience, personal projects can help demonstrate your skills and passion for computer science. Set a goal to complete at least one project over the summer.</li></ol><p id="d8522b6c-7187-480a-92d6-3bc326ac8df1" class="">
+</p><p id="0d1a668e-517f-43d0-a4b1-84b02b8c4a84" class="">:::</p><p id="0f3422aa-121c-4161-8868-ff812bfc74cc" class="">
+</p></div><div id="8590ec12-7a80-47a0-81d5-8f20f33ce9a7" style="width:56.25%" class="column"><h2 id="3afa7015-1d83-4de9-b126-c3d6eff1a005" class="">Daily To-do&#x27;s!</h2><p id="15ee1577-75c2-4a70-97cf-e5d69a1fedf8" class="block-color-gray">Things that need to be done today!</p><ul id="50e6297f-0f5a-45b6-9c54-bc89a8421667" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span><div class="indented"></div></li></ul><p id="7f412461-0af0-4fff-92f8-6d602dd41ca2" class="">
+</p><figure id="d9890939-74c6-4496-99c7-ba7d5603c271" class="link-to-page"><a href="https://www.notion.so/Archived-d989093974c6449699c7ba7d5603c271"><span class="icon">🗃️</span>Archived</a></figure><p id="d981f9d9-b29d-4cce-acf4-3864aab70fe7" class="">
+</p><p id="60ee7f62-a1d0-4914-938f-7a8aa1b5c997" class="">
+</p><p id="543f5c46-21fb-4d3b-9bd9-2ba4b5d59c5e" class="">
+</p><p id="7263c1b3-124d-420b-9d76-c750aaee04c4" class="">
+</p><p id="fa78d258-7fb0-44a4-8363-0efe85870254" class="">
+</p><p id="302dcca0-bf2a-461c-b3f0-b4e3a5c761fb" class="">
+</p><h2 id="e44eb5ac-aa3b-4689-9c2a-077176367898" class="block-color-gray">Summer Learning and Project Ideas</h2><h3 id="9ae88b3a-b6be-4cdb-929d-25fcc2766fd3" class="">Things to Learn:</h3><ul id="b5451a4c-b9af-4404-8714-338f1748948c" class="bulleted-list"><li style="list-style-type:disc">Node.js and React full stack web development</li></ul><ul id="2a1c6389-e6fd-47de-a943-634841517293" class="bulleted-list"><li style="list-style-type:disc">Tailwind CSS</li></ul><ul id="b67e492e-d463-4bd3-8072-ac1dc92694b0" class="bulleted-list"><li style="list-style-type:disc">Database management</li></ul><h3 id="49157a42-51f8-4ed1-be53-77c4f2095516" class="">Project Ideas:</h3><ul id="27caed3d-dfbf-4b70-b925-a5cf9347b9a3" class="bulleted-list"><li style="list-style-type:disc">Full stack API project with Node.js</li></ul><ul id="52e6402e-8997-4462-88ca-e0ffeb68d66c" class="bulleted-list"><li style="list-style-type:disc">Create a website for generating VSCode themes</li></ul><ul id="2248bc89-53a3-4495-8b85-a3b4a6888496" class="bulleted-list"><li style="list-style-type:disc">Full stack project with Node.js and React</li></ul><h2 id="ffe34d10-eec9-437d-b14d-e7253b6ea278" class="">Work on Personal Project</h2><h3 id="a6a2b671-ffdf-4806-b396-f06da40ff515" class="">Atomic Habit Rules:</h3><ul id="0c361151-8ed8-4f69-86cb-a58634bb6254" class="bulleted-list"><li style="list-style-type:disc">Work on the project for at least 25 minutes every day</li></ul><ul id="d69d650d-086d-48a5-8918-40a143b8de33" class="bulleted-list"><li style="list-style-type:disc">Focus on one task at a time and avoid multitasking</li></ul><ul id="a9a41d1d-a702-4df4-9012-12a60337c754" class="bulleted-list"><li style="list-style-type:disc">Take breaks every 50-60 minutes to avoid burnout</li></ul><h3 id="a796c6ff-0b28-457b-af1d-115224a01da0" class="">Roadmap:</h3><ol type="1" id="617f1346-6732-4e8d-b7c1-033326f8911c" class="numbered-list" start="1"><li>Decide on a project idea by the end of this week</li></ol><ol type="1" id="8537e0de-ff04-4373-b422-bce16234204e" class="numbered-list" start="2"><li>Spend 30 minutes each day researching and learning Node.js and React</li></ol><ol type="1" id="46e02704-e660-4285-9279-12c0cc196ef0" class="numbered-list" start="3"><li>Set aside 30 minutes each day to learn Tailwind CSS</li></ol><ol type="1" id="5f66bc01-b6e6-4a82-ae9c-f0e64ad29072" class="numbered-list" start="4"><li>Allocate 30 minutes each day to learn about database management</li></ol><ol type="1" id="d7cf32d4-b9b5-495f-af4e-d4f1c48e3784" class="numbered-list" start="5"><li>Implement a full-stack project with Node.js and React over the course of the next 2-3 weeks</li></ol><ol type="1" id="9e7eba72-0bde-4260-b69f-886e633cab37" class="numbered-list" start="6"><li>Spend an additional 30 minutes each day to create a website for generating VSCode themes</li></ol><ol type="1" id="116acfe2-5736-41c6-a21e-441a327fdfa2" class="numbered-list" start="7"><li>Allocate 30 minutes each day to work on implementing a full-stack API project with Node.js</li></ol><ol type="1" id="6ad497b6-0a30-4e24-991c-4f724c978e3a" class="numbered-list" start="8"><li>Review progress and adjust habits as necessary every week</li></ol><p id="47d8ad4a-246c-4efa-b108-b7b7fc26da02" class="">
+</p></div></div><hr id="42b798fd-769a-4833-b833-b4b3fa1ac9de"/><p id="7a8e9f9b-4b8a-4591-88be-7cc0db9ec197" class="">
+</p></div></article></body></html>
