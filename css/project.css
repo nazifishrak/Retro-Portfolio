@@ -1,5 +1,5 @@
 body{
-font-family: 'Poppins', sans-serif;
+font-family: 'Space Mono', monospace;
     /* font-weight: 400; */
     background-color: #171927; 
     
@@ -65,7 +65,7 @@ font-family: 'Poppins', sans-serif;
 	border:1px solid #38a88e;
 	display:inline-block;
 	cursor:pointer;
-	color:#2B4865;
+	color:#000000;
 
 	font-size:17px;
 	font-weight:bold;
@@ -78,6 +78,19 @@ font-family: 'Poppins', sans-serif;
 
     transition: transform 0.2s ease-in-out;
   }
+
+  .bg-clip-text {
+    margin-left: 50px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
 
   .card:hover {
     transform: translateY(-5px);
