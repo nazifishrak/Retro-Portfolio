@@ -109,7 +109,26 @@ a{
 	position:relative;
 	top:1px;
 }
+.music_container{
+    display: flex;
+    flex-direction: row;
+}
+.item {
+ 
+  flex-grow: 1;
+  flex-basis: 0;
+  aspect-ratio: 1/1;
+  }
+  
 
+  @media (max-width: 768px) {
+    .music_container {
+      flex-direction: column; 
+    }
+    .item{
+        margin: auto;
+    }
+  }
 /* Footer------------------ */
 #footer{
     text-align: center;
