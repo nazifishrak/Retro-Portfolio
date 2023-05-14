@@ -1,5 +1,5 @@
 body{
-font-family: 'Space Mono', monospace;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
     /* font-weight: 400; */
     background-color: #171927; 
     
@@ -51,6 +51,7 @@ font-family: 'Space Mono', monospace;
     width: 100%;
     background-color: #22d0bf;
     border: 1px solid #22d0bf;
+    max-width: 100%;
     border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
