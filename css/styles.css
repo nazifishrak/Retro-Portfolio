@@ -113,6 +113,9 @@ a{
 .music_container{
     display: flex;
     flex-direction: row;
+    padding: 20px; 
+  margin: 0 auto; 
+  max-width: 80%; 
 }
 .item {
  
