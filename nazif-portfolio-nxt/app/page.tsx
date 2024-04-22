@@ -1,7 +1,9 @@
+"use client"
+import RootLayout from "./layout";
 export default function Home() {
   return (
-    <main>
-      <h1 className="text-6xl">Hello World</h1>
-    </main>
+    <RootLayout>
+      <h1 className="text-red-800 z-60">Hello</h1>
+    </RootLayout>
   );
 }
