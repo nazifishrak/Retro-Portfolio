@@ -30,8 +30,10 @@ export const Navbar = () => {
   };
 
   return (
-      <header className="w-full mx-auto px-4 sm:px-20 top-0 shadow bg-white dark:bg-black 
-      dark:border-b dark:border-black">
+      <header className="w-full mx-auto px-4 sm:px-20 top-0  ">
+        {/*class to bring default shape to navbar*/}
+        {/* shadow bg-white dark:bg-black
+      dark:border-b dark:border-black*/}
         <div className="justify-between md:items-center md:flex">
           <div>
 
@@ -41,7 +43,7 @@ export const Navbar = () => {
 
             <div>
               <button>
-                {navbar? <IoMdClose/> : <IoMdMenu/> }
+                {navbar? <IoMdClose size={30}/> : <IoMdMenu size={30}/> }
               </button>
 
             </div>
