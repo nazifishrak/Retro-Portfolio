@@ -10,7 +10,7 @@ const Timeline = () => {
                 <TimelineItem icon={"work"} title={"Business Systems Analyst Co-Op"}
                               date={"September 2023 – April 2024"} company={" D-Wave Quantum Systems Inc."}/>
 
-                <TimelineItem icon={"work"} title={"Data Engineer Intern"} date={"May 2023 – August 2023"}
+                <TimelineItem icon={"git"} title={"Data Engineer Intern"} date={"May 2023 – August 2023"}
                               company={"Pathao Limited"}/>
 
                 <TimelineItem icon={"work"} title={"Teaching Assistant"} date={"September 2022 – April 2023"}
