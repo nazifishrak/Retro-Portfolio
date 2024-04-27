@@ -3,7 +3,7 @@ import React from "react";
 import Timeline from "@/app/components/TimeLine/Timeline";
 const Blog = () => {
     return (
-            
+
 
             <div className={'h-screen w-screen p-5'}>
                 <h1

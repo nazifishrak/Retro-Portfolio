@@ -45,7 +45,7 @@ export const Navbar = () => {
             </div>
 
             <div className={"md:hidden"}>
-              <button className={"pt-10"}>
+              <button onClick={()=>{setNavbar(!navbar)}} className={"pt-10"}>
                 {navbar ? <IoMdClose size={30}/> : <IoMdMenu size={30}/>}
               </button>
 
@@ -53,12 +53,12 @@ export const Navbar = () => {
 
 
           </div>
-          <div className="hidden md:flex md:space-x-6 font-bold">
+          <div className={`${navbar? "flex flex-col items-center md:flex-row bg-slate-100 shadow-2xl rounded-xl font-thin dark:text-black": "hidden rounded-b-none font-thin dark:rounded-b-none"} md:flex md:space-x-6 font-bold`}>
             {NAV_CONTENTS.map((item, id) => (
                 // <a key={id} href={`/${item.value}`}>
                 //   {item.name}
                 // </a>
-                <Link className={"pt-2"} key={id} href={`/${item.value}`}>{item.name}</Link>
+                <Link className={` ${navbar? "": "mr-5"} pt-2`} key={id} href={`/${item.value}`}>{item.name}</Link>
             ))}
             <button onClick={handleThemeToggle} className="bg-slate-100 m-x-0 p-2 rounded-xl">
               {isDarkMode ? (
