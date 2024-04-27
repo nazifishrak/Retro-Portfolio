@@ -4,6 +4,7 @@ import React from 'react';
 import Typewriter from "typewriter-effect";
 import MyAvatar from "@/app/components/Hero/MyAvatar";
 import {VT323} from "@next/font/google";
+import SvgIcon from "@/app/components/TimeLine/SVGIcon";
 
 const mono = VT323({subsets: ["latin"], weight: "400"});
 
@@ -38,15 +39,10 @@ const Hero = () => {
                             I like to code for fun
                         </p>
                         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                            <a href="#"
-                               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                                Experience
-                                <svg className="w-6 h-6 text-gray-800 text-white" aria-hidden="true"
-                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                     viewBox="0 0 24 24">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                                          strokeWidth="2" d="M12 19V5m0 14-4-4m4 4 4-4"/>
-                                </svg>
+                            <a href="https://github.com/nazifishrak"
+                               className="inline-flex justify-center items-center py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                                Github
+                                <SvgIcon icon={"git"}/>
 
                             </a>
                             <a href="#"
