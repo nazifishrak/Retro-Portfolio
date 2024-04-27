@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Typewriter from "typewriter-effect";
-import MyAvatar from "@/app/components/MyAvatar";
+import MyAvatar from "@/app/components/Hero/MyAvatar";
 import {VT323} from "@next/font/google";
 const mono = VT323({subsets:["latin"],weight:"400"});
 
@@ -14,12 +14,17 @@ const Hero = () => {
             <div className={`flex flex-row w-full`}>
                 <section className="ml-2 pl-12">
                     <div className="ml-2 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-                        <h1 className={`${mono.className} mb-4 text-6xl font-extrabold tracking-tight leading-none text-gray-900 md:text-7xl lg:text-9xl dark:text-white `}>
+                        {/*${mono.className} --> This was for my old robotic text*/}
+                        <h1 className={` mb-4 text-5xl font-bold tracking-tight leading-none text-gray-900 md:text-7xl lg:text-8xl dark:text-white `}>
                             <Typewriter
                                 options={{
-                                    strings: ["Hi I am  Nazif"],
+                                    strings: ["hey, I'm  nazif 👋"],
                                     autoStart: true,
-                                    loop: true,
+                                    deleteSpeed: 1000000000,
+                                   loop: false,
+
+
+
                                 }}
                             /></h1>
                         <p className={`mb-8 text-lg  text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400`}>Welcome
