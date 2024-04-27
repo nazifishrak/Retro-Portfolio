@@ -4,7 +4,8 @@ import React from 'react';
 import Typewriter from "typewriter-effect";
 import MyAvatar from "@/app/components/Hero/MyAvatar";
 import {VT323} from "@next/font/google";
-const mono = VT323({subsets:["latin"],weight:"400"});
+
+const mono = VT323({subsets: ["latin"], weight: "400"});
 
 const Hero = () => {
     return (
@@ -21,23 +22,32 @@ const Hero = () => {
                                     strings: ["hey, I'm  nazif 👋"],
                                     autoStart: true,
                                     deleteSpeed: 1000000000,
-                                   loop: false,
-
+                                    loop: false,
 
 
                                 }}
-                            /></h1>
-                        <p className={`mb-8 text-lg  text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400`}>Welcome
-                            to My Portfolio</p>
+                            />
+                        </h1>
+                        <p className="text-left mb-4 text-xl font-thin leading-none tracking-tight text-gray-900 md:text-xl lg:text-xl dark:text-white">I
+                            am a CS Major at UBC.
+                            <br/>
+                            Currently a <span
+                                className="underline underline-offset-4 decoration-4 decoration-blue-400 dark:decoration-blue-600">Product Manager</span> intern
+                            at Broadridge
+                            <br/>
+                            I like to code for fun
+                        </p>
                         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                             <a href="#"
                                className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                                Get started
-                                <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                Experience
+                                <svg className="w-6 h-6 text-gray-800 text-white" aria-hidden="true"
+                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                     viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                                          strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                          strokeWidth="2" d="M12 19V5m0 14-4-4m4 4 4-4"/>
                                 </svg>
+
                             </a>
                             <a href="#"
                                className="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
