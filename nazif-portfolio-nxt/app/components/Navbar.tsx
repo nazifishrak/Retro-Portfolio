@@ -35,31 +35,32 @@ export const Navbar = () => {
         {/* shadow bg-white dark:bg-black
       dark:border-b dark:border-black*/}
         <div className="justify-between md:items-center md:flex">
-          <div>
+          <div className={"flex justify-between "}>
 
-            <div className="md:py-5 md:block">
-              <h2 className="text-2xl font-bold">Nazif Ishrak</h2>
+            <div className="pt-5 md:py-5 md:block">
+              {/*<h2 className="text-2xl font-bold">Nazif Ishrak</h2>*/}
+              <h2 className=" mt-4 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">Nazif <mark
+                  className="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Ishrak</mark>
+              </h2>
             </div>
 
-            <div>
-              <button>
-                {navbar? <IoMdClose size={30}/> : <IoMdMenu size={30}/> }
+            <div className={"md:hidden"}>
+              <button className={"pt-10"}>
+                {navbar ? <IoMdClose size={30}/> : <IoMdMenu size={30}/>}
               </button>
 
             </div>
 
 
-
-
           </div>
-          <div className="md:flex md:space-x-6">
+          <div className="md:flex md:space-x-6 font-bold">
             {NAV_CONTENTS.map((item, id) => (
                 // <a key={id} href={`/${item.value}`}>
                 //   {item.name}
                 // </a>
-                <Link key={id} href={`/${item.value}`}>{item.name}</Link>
+                <Link className={"pt-2"} key={id} href={`/${item.value}`}>{item.name}</Link>
             ))}
-            <button onClick={handleThemeToggle} className="bg-slate-100 p-2 rounded-xl">
+            <button onClick={handleThemeToggle} className="bg-slate-100 m-x-0 p-2 rounded-xl">
               {isDarkMode ? (
                   <RiSunLine size={25} color="black" />
               ) : (
