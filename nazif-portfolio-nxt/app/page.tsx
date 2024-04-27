@@ -1,12 +1,20 @@
-import RootLayout from "./layout";
+"use client"
+import {VT323} from "@next/font/google";
+import Typewriter from 'typewriter-effect';
+import MyAvatar from "@/app/components/MyAvatar";
+import Hero from "@/app/components/Hero";
+
+const mono = VT323({subsets:["latin"],weight:"400"});
+
 export default function Home() {
+
   return (
-    // Using a React Fragment to wrap the two elements
-    <>  
-      
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125% 125% at 50% 10%,#000 40%,#63e 100%)]">
-      {/* <h1 className="text-red-800 z-60">Hello</h1> */}
-      </div>
-    </>
+      <>
+        <Hero/>
+
+
+
+
+      </>
   );
 }

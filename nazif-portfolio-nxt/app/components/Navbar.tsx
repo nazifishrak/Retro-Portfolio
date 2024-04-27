@@ -53,7 +53,7 @@ export const Navbar = () => {
 
 
           </div>
-          <div className="md:flex md:space-x-6 font-bold">
+          <div className="hidden md:flex md:space-x-6 font-bold">
             {NAV_CONTENTS.map((item, id) => (
                 // <a key={id} href={`/${item.value}`}>
                 //   {item.name}
