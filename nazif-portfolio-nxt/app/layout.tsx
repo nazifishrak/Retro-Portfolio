@@ -2,7 +2,19 @@ import "./globals.css";
 import { Navbar } from "./components/Navbar";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/app/components/Footer";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Head from "next/head";
 
+
+
+export const metadata = {
+    title: "Nazif Ishrak 🚀",
+    description: "I built this website for fun. Still thinking what I want to put in here",
+    icons: {
+        icon: '/favicon.ico',
+    },
+}
 export default function RootLayout({
                                        children,
                                    }: Readonly<{
@@ -10,6 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning={true}>
+
         <body>
         <ThemeProvider enableSystem={true} attribute="class">
 
@@ -24,6 +37,8 @@ export default function RootLayout({
                     <Navbar/>
 
                     {children}
+                    <Analytics/>
+                    <SpeedInsights />
 
                     <Footer/>
 
